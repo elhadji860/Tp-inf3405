@@ -1,5 +1,0 @@
-INDEX VERSION 1.134+C:\Users\elhad\Desktop\semestre 4\inf3405\Tp-inf3405\TP1\Elhadji\tp1\.metadata\.plugins\org.eclipse.jdt.core
-2501520862.index
-1865797976.index
-3159318999.index
-137624701.index

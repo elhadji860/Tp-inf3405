@@ -47,7 +47,7 @@ public class ClientHandler extends Thread { // pour traiter la demande de chaque
 				{
 					command = command.replace("mkdir", "");
 					command = command.replace(" ", "");
-					command = cheminCourant + "/" + command;
+					command += cheminCourant + "/" + command;
 					File dir = new File(command);
 					if (dir.mkdir()) {
 						return "execution Reussie"; 

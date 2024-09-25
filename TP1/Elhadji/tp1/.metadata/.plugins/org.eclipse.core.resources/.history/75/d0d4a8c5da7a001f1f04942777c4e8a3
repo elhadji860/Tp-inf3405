@@ -45,17 +45,10 @@ public class ClientHandler extends Thread { // pour traiter la demande de chaque
 			else if (commandeValide(command) == "mkdir") {
 				try 
 				{
-					command = command.replace("mkdir", "");
-					command = command.replace(" ", "");
-					command = cheminCourant + "/" + command;
-					File dir = new File(command);
-					if (dir.mkdir()) {
-						return "execution Reussie"; 
-					}
-					else {
-						System.out.println(cheminCourant);
-						return "erreur execution";
-					}
+					command.replace("mkdir", "");
+					command.replace(" ", "");
+					command += 
+					dir.mkdir(command); 
 				}
 				catch(SecurityException e)
 				{
@@ -72,7 +65,7 @@ public class ClientHandler extends Thread { // pour traiter la demande de chaque
 	public void run() { // Création de thread qui envoi un message à un client
 			while(true) 
 			{
-				String cheminCourant = ".";
+				String Cuu
 				String commande = null;
 				try 
 				{
@@ -84,7 +77,7 @@ public class ClientHandler extends Thread { // pour traiter la demande de chaque
 					try 
 					{
 						DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-						out.writeUTF(commandInterpreter(commande, cheminCourant ));
+						out.writeUTF("ok");
 					}
 					catch (IOException e) {
 						System.out.println("erreur de communication");

@@ -45,17 +45,14 @@ public class ClientHandler extends Thread { // pour traiter la demande de chaque
 			else if (commandeValide(command) == "mkdir") {
 				try 
 				{
-					command = command.replace("mkdir", "");
-					command = command.replace(" ", "");
-					command = cheminCourant + "/" + command;
+					command.replace("mkdir", "");
+					command.replace(" ", "");
+					command += "/" + cheminCourant;
 					File dir = new File(command);
-					if (dir.mkdir()) {
+					if (dir.mkdir())
 						return "execution Reussie"; 
-					}
-					else {
-						System.out.println(cheminCourant);
+					else
 						return "erreur execution";
-					}
 				}
 				catch(SecurityException e)
 				{

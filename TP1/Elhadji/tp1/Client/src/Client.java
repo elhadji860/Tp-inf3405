@@ -1,5 +1,7 @@
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+//import java.io.File;
+//import java.io.FileInputStream;
 //import java.io.EOFException;
 import java.io.IOException;
 import java.io.NotActiveException;
@@ -94,11 +96,26 @@ public class Client {
 		while(true) {
 			try 
 			{
+				System.out.println("connecting...");
 				socket = new Socket(serverAddress, port);
 				System.out.format("Serveur lancé sur [%s:%d] \n", serverAddress, port);
 				break;
 			}
 			catch(IllegalArgumentException e)
+			{
+				System.out.println("erreur de connexion");
+				System.out.println("nouvel essai : ");
+				serverAddress = getIP();
+				port = getPort();
+			}
+			catch(IOException e) 
+			{
+				System.out.println("erreur de connexion");
+				System.out.println("nouvel essai : ");
+				serverAddress = getIP();
+				port = getPort();
+			}
+			catch(SecurityException e) 
 			{
 				System.out.println("erreur de connexion");
 				System.out.println("nouvel essai : ");
@@ -122,7 +139,13 @@ public class Client {
 					while(messageFromServer == null) {
 						messageFromServer = in.readUTF();
 					}
+					if(messageFromServer.equals("exit")) {
+						System.exit(0);
+					}
+								
+					else {
 					System.out.format("%s \n",messageFromServer);
+					}
 				}
 				catch (IOException e) {
 					System.out.println("erreur de communication");

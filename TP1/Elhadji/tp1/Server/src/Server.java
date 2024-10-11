@@ -96,6 +96,7 @@ public class Server {
 		while (true) {
 			try 
 			{
+				System.out.println("connecting...");
 				Listener.bind(new InetSocketAddress(serverIP, serverPort));
 				break;
 			}
